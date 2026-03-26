@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0a0e1a;
+    color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 40px 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #c89b3c;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+#search {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+#search input {
+    background: #1a1f2e;
+    border: 1px solid #c89b3c;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+}
+
+#search input::placeholder {
+    color: #666;
+}
+
+#search button {
+    background: #c89b3c;
+    color: #0a0e1a;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#search button:hover {
+    background: #e0b44a;
+}
+
+#result {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.player-card {
+    background: #1a1f2e;
+    border: 1px solid #2a2f3e;
+    border-radius: 12px;
+    padding: 24px;
+    width: 280px;
+}
+
+.player-card h2 {
+    color: #c89b3c;
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+}
+
+.player-card h3 {
+    color: #888;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    margin-top: 16px;
+}
+
+.player-card p {
+    color: #ccc;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}

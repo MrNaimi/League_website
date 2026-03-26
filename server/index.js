@@ -36,7 +36,7 @@ app.get('/players', (req, res) => {
 app.post('/players', (req, res) => {
     const { name, tag } = req.body
     const filePath = path.join(__dirname, 'players.json')
-    const existing = fs.existsSync(filePath) ? JSON.parse.apply(fs.readFileSync(filePath, 'utf8')) : []
+    const existing = fs.existsSync(filePath) ? JSON.parse(fs.readFileSync(filePath, 'utf8')) : []
     if (existing.find(p => p.name === name && p.tag === tag)) {
         return res.json({ message: 'This player has already been added' })
     }
