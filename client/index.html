@@ -1,18 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>League Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div id="app">
-        <h1>League Website</h1>
+        <header>
+            <h1>League Tracker</h1>
+            <p class="subtitle">Track your friends' ranked stats</p>
+        </header>
         <div id="search">
-            <input type="text" id="gameName" placeholder="In game name">
-            <input type="text" id="tagLine" placeholder="Tag">
-            <button onclick="search()">Add</button>
+            <div class="input-group">
+                <input type="text" id="gameName" placeholder="Game name" autocomplete="off">
+                <span class="divider">#</span>
+                <input type="text" id="tagLine" placeholder="TAG" autocomplete="off" style="max-width:100px">
+            </div>
+            <button onclick="search()">Add Player</button>
         </div>
         <div id="result"></div>
     </div>

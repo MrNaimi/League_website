@@ -7,86 +7,278 @@
 body {
     background-color: #0a0e1a;
     color: #ffffff;
-    font-family: 'Segoe UI', sans-serif;
-    padding: 40px 20px;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    padding: 60px 20px;
+    min-height: 100vh;
+}
+
+#app {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 h1 {
-    text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.4rem;
+    font-weight: 700;
     color: #c89b3c;
-    margin-bottom: 30px;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    color: #555e7a;
+    font-size: 0.9rem;
+    margin-top: 6px;
+    letter-spacing: 1px;
 }
 
 #search {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
-#search input {
-    background: #1a1f2e;
-    border: 1px solid #c89b3c;
+.input-group {
+    display: flex;
+    align-items: center;
+    background: #111627;
+    border: 1px solid #2a3050;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+
+.input-group:focus-within {
+    border-color: #c89b3c;
+}
+
+.input-group input {
+    background: transparent;
+    border: none;
     color: white;
-    padding: 10px 16px;
-    border-radius: 6px;
-    font-size: 1rem;
+    padding: 11px 16px;
+    font-size: 0.95rem;
+    font-family: inherit;
     outline: none;
+    min-width: 160px;
 }
 
-#search input::placeholder {
-    color: #666;
+.input-group input::placeholder {
+    color: #3d4560;
+}
+
+.divider {
+    color: #3d4560;
+    font-weight: 600;
+    padding: 0 2px;
+    user-select: none;
 }
 
 #search button {
     background: #c89b3c;
     color: #0a0e1a;
     border: none;
-    padding: 10px 24px;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: bold;
+    padding: 11px 22px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: inherit;
+    letter-spacing: 0.5px;
     cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    white-space: nowrap;
 }
 
 #search button:hover {
-    background: #e0b44a;
+    background: #dba840;
+}
+
+#search button:active {
+    transform: scale(0.97);
 }
 
 #result {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
 }
 
 .player-card {
-    background: #1a1f2e;
-    border: 1px solid #2a2f3e;
+    background: #111627;
+    border: 1px solid #1e2540;
     border-radius: 12px;
-    padding: 24px;
-    width: 280px;
+    padding: 22px;
+    transition: border-color 0.2s, transform 0.2s;
 }
 
-.player-card h2 {
-    color: #c89b3c;
+.player-card:hover {
+    border-color: #2e3860;
+    transform: translateY(-2px);
+}
+
+.player-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #e8d5a3;
     margin-bottom: 16px;
-    font-size: 1.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.player-card h3 {
-    color: #888;
-    font-size: 0.8rem;
+.player-name span {
+    color: #4a5270;
+    font-weight: 400;
+}
+
+.queue-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #3d4560;
+    margin-bottom: 10px;
+}
+
+.rank-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.rank-badge {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.lp {
+    font-size: 0.85rem;
+    color: #c89b3c;
+    font-weight: 500;
+}
+
+.unranked {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #3d4560;
+    margin-bottom: 12px;
+}
+
+.stats-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.stat-label {
+    font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 8px;
-    margin-top: 16px;
+    color: #3d4560;
 }
 
-.player-card p {
-    color: #ccc;
-    font-size: 0.95rem;
-    margin-bottom: 4px;
+.stat-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ccd0e0;
+}
+
+.stat-value.win-rate {
+    color: #5ba85e;
+}
+
+.stat-value.win-rate.low {
+    color: #b85b5b;
+}
+
+/* Rank tier colors */
+.tier-iron       { color: #8a7a70; }
+.tier-bronze     { color: #a0704a; }
+.tier-silver     { color: #9ab0c0; }
+.tier-gold       { color: #c89b3c; }
+.tier-platinum   { color: #4ab8a0; }
+.tier-emerald    { color: #5ab870; }
+.tier-diamond    { color: #6080d0; }
+.tier-master     { color: #9060c8; }
+.tier-grandmaster { color: #d04040; }
+.tier-challenger { color: #60d8e0; }
+
+/* Favorite champions */
+.champions {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid #1e2540;
+}
+
+.champ-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.champ {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.champ-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid #2a3050;
+    background: #1e2540;
+    flex-shrink: 0;
+}
+
+.champ-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ccd0e0;
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.champ-stats {
+    font-size: 0.75rem;
+    color: #555e7a;
+    white-space: nowrap;
+}
+
+.champ-stats .win-rate {
+    font-weight: 600;
+    color: #5ba85e;
+}
+
+.champ-stats .win-rate.low {
+    color: #b85b5b;
+}
+
+.champ-empty,
+.champ-sync {
+    font-size: 0.8rem;
+    color: #3d4560;
+}
+
+.champ-sync {
+    margin-top: 2px;
+    font-size: 0.7rem;
 }
